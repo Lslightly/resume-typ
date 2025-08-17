@@ -1,14 +1,12 @@
-# ice1000's resume
+# Lslightly's resume
 
-[![GitHub top language](https://img.shields.io/github/languages/top/ice1000/resume.svg)](https://github.com/ice1000/resume)
-[![GitHub forks](https://img.shields.io/github/forks/ice1000/resume.svg?style=social&label=Fork)](https://github.com/ice1000/resume)
+[![GitHub top language](https://img.shields.io/github/languages/top/Lslightly/resume-typ.svg)](https://github.com/Lslightly/resume-typ)
 
-This is my resume, based on [Matchy's template](https://github.com/matchy233/typst-chi-cv-template).
-I'll no longer be using Haskell + $\LaTeX$ to build my resume. Typst exists and it's 114514 times better than $\LaTeX$.
+This is my resume, based on [ice1000's template](https://github.com/ice1000/resume).
 
 Build on Windows: install the latest version of typst and the fontawesome fonts following the instructions in the README of [typst-fontawesome](https://github.com/duskmoon314/typst-fontawesome), then run `build-win.bat`.
 
-Build on Linux: you're on your own. PR welcome.
+Build on Linux: you're on your own. PR to [ice1000's template](https://github.com/ice1000/resume) welcome.
 
 # Download/下载
 
