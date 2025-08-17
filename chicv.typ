@@ -34,6 +34,8 @@
 
 // ---
 
+#let pdf_link(uri, text: []) = icon_text_link(uri, text: text, icon: fa-file-pdf())
+
 #let email_link(uri, email) = icon_text_link(uri, text: email, icon: fa-envelope())
 
 #let github_repo_link(repo) = icon_text_link("https://github.com/" + repo, text: repo, icon: fa-github())
@@ -56,6 +58,10 @@
 
 #let doilink(url) = {
   link(url)[#ai-doi()]
+}
+
+#let acmlink(url) = {
+  link(url)[#ai-acm(fill: rgb("#008ecf"), size: 12pt)]
 }
 
 // https://github.com/typst/typst/issues/1987#issuecomment-1690672386

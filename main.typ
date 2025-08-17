@@ -99,7 +99,7 @@
         tr: date,
       )[],
       zh: cventry(
-        tl: [*MEA2: a Lightweight Field-Sensitive Escape Analysis with Points-to Calculation for Golang*],
+        tl: [*MEA2: a Lightweight Field-Sensitive Escape Analysis with Points-to Calculation for Golang* #acmlink("https://dl.acm.org/doi/10.1145/3689759")],
         tr: date,
       )[
         - 考虑Go语言的独特语言特性，在LLVM IR上实现更加精确的域敏感逃逸分析算法。在仅有额外1\%编译时间开销下平均减少7.9\%的堆分配点。
@@ -116,7 +116,7 @@
         tr: date,
       )[],
       zh: cventry(
-        tl: [*DBI-Go: 动态插桩定位Go二进制的非法内存引用*],
+        tl: [*DBI-Go: 动态插桩定位Go二进制的非法内存引用* #pdf_link("https://www.jos.org.cn/josen/article/pdf/7096", text: "")],
         tr: date,
       )[
         - 基于二进制插桩的内存引用分析。检测编译器逃逸分析算法错误导致的悬垂指针问题。
@@ -134,7 +134,7 @@
         tr: date,
       )[],
       zh: cventry(
-        tl: [*GoLLVM 内存管理的语义和优化*],
+        tl: [*GoLLVM 内存管理的语义和优化* #ghLink],
         tr: date,
       )[
         - 基于K框架对GoLLVM编译器编译生成的IR进行语义建模
@@ -181,55 +181,7 @@
   }
 
   let misc = {
-    let intellij = "https://plugins.jetbrains.com/author/10a216dd-c558-4aaf-aa8a-723f431452fb"
-    let osc      = link("https://ice1000.org/opensource-contributions")
-    // bintray  = "https://bintray.com/ice1000"
-    let crates   = "https://crates.io/users/ice1000"
-    // What to do with this?
-    // let personal = "https://personal.psu.edu/yqz5714"
-    let seRep    = [6000+]
-    let paRep    = [5000+]
-    let stackex(e) = link("https://stackexchange.com/users/9532102")[#e]
-    let pase     = link("https://proofassistants.stackexchange.com/users/32/ice1000")[Proof Assistants]
-    // https://raw.githubusercontent.com/ice1000/resume/master/resume.pdf
-    let enSimple = link("https://tinyurl.com/y8xdlfug")
-    // https://raw.githubusercontent.com/ice1000/resume/master/resume-elab.pdf
-    let enElab   = link("https://tinyurl.com/y2v59t36")
-    // https://raw.githubusercontent.com/ice1000/resume/master/resume-cn.pdf
-    let cnLink   = link("https://tinyurl.com/ya4urea8")
-    let codewars = link("https://www.codewars.com/users/ice1000")[CodeWars]
-    let cwLevel  = [*1 dan*]
-    let cwPerc   = [0.020%]
-    let cwRank   = [\#111]
-    let projects = [*agda, Arend, libgdx, jacoco, KaTeX, shields.io, grpc-rs, intellij-solidity, intellij-haskell, intellij-rust, TeXiFy-IDEA, rust-analyzer*]
 
-    translate(en: noSimple(simple: [
-      - Profile links (please use a PDF reader with hyperlink support):
-        #link(crates)[Crates.io],
-        #link(intellij)[IntelliJ] Marketplace
-    ])[
-      - Crates.io: #link(crates), publishing interesting Rust libraries
-      - IntelliJ Marketplace: #link(intellij)
-    ], zh: [
-      - 相关个人页面链接（请使用支持超链接的 PDF 阅读器）：#link(crates)[Crates.io] 主页，#link(intellij)[IntelliJ] 插件市场主页
-    ])
-    translate(
-      en: [- Languages: English - fluent (TOEFL 100), Chinese - native speaker],
-      zh: [- 语言：English - 熟练 (托福 100)，汉语 - 母语水平]
-    )
-    translate(
-      en: [
-        - Open-source contributions: #osc, #noSimple[member of JuliaEditorSupport, agda, pest-parser, EmmyLua, arend-lang and more,]
-          contributed to #projects and other projects #noSimple[(apart from organization ones)]
-      ],
-      zh: [- 开源贡献: #osc，向 #projects 等项目贡献过代码]
-    )
-    [- #link("https://stackoverflow.com/users/7083401/ice1000")[StackOverflow]: #seRep
-      #translate(
-        en: [reputation, also active on #pase (#paRep reputation) and #stackex("other StackExchange sites")],
-        zh: [声誉，同时也在 #pase（#paRep 声誉）和#stackex("其他 StackExchange 子站")活跃]
-      )
-    ]
   }
 
   let self_infos = (
@@ -263,8 +215,6 @@
 
   translate(en: [== Skills], zh: [== 技能])
   skills
-
-  translate(en: [== Open Source Contribution], zh: [== 开源贡献])
 
   translate(en: [== Misc], zh: [== 其它])
   // misc
