@@ -18,5 +18,5 @@ echo #runReader(EnglishFull) >> resume-elab.typ
 for %%f in (%files%) do (
   echo Building %%f.typ
   typst compile %%f.typ
-  del %%f.typ
+  @REM del %%f.typ
 )
