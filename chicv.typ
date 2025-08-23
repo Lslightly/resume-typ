@@ -10,13 +10,15 @@
 #import "@preview/fontawesome:0.6.0": *
 #import "@preview/use-academicons:0.1.0": *
 
+#let iconsize = 11pt
+
 #let link-icon = fa-icon("link")
 #let doi-icon = ai-icon("doi")
 #let icon_text_link(uri, text: [], icon: link-icon) = {
   if text == [] {
     text = uri
   }
-  link(uri)[#icon #text]
+  [#icon #link(uri)[#text]]
 }
 
 #let icon_link(uri, icon: link-icon) = {
@@ -34,11 +36,35 @@
 
 // ---
 
-#let pdf_link(uri, text: []) = icon_text_link(uri, text: text, icon: fa-file-pdf())
+#let pdf_link(uri, text: "") = {
+  if text == "" {
+    icon_link(uri, icon: fa-file-pdf(fill: red, size: iconsize))
+  } else {
+    icon_text_link(uri, text: text, icon: fa-file-pdf(fill: red, size: iconsize))
+  }
+}
+
+#let html_link(uri, text: "") = {
+  if text == "" {
+    icon_link(uri, icon: fa-globe(fill: gray, size: iconsize))
+  }
+}
 
 #let email_link(uri, email) = icon_text_link(uri, text: email, icon: fa-envelope())
 
 #let github_repo_link(repo) = icon_text_link("https://github.com/" + repo, text: repo, icon: fa-github())
+
+#let github_pr_link(link, text, status: "merged") = {
+  if status == "merged" {
+    icon_text_link(link, text: text, icon: fa-code-merge(fill: rgb("#8250df")))
+  } else if status == "open" {
+    icon_text_link(link, text: text, icon: fa-code-pull-request(fill: rgb("#1f883d")))
+  } else if status == "drafted" {
+    icon_text_link(link, text: text, icon: fa-code-pull-request(fill: rgb("#59636e")))
+  } else if status == "closed" {
+    icon_text_link(link, text: text, icon: fa-code-pull-request(fill: rgb("#cf222e")))
+  }
+}
 
 #let github_home(name) = icon_text_link("https://github.com/"+name, icon: fa-github(), text: name)
 
@@ -49,7 +75,7 @@
   icon_link("https://space.bilibili.com/"+userid, icon: fa-bilibili(fill: blue))
 }
 
-#let orcid_home(id) = academic_text_link("https://orcid.org/"+id, icon: ai-icon("orcid", fill: rgb("#b2c046")), text: id)
+#let orcid_home(id) = academic_link("https://orcid.org/"+id, icon: ai-icon("orcid", fill: rgb("#b2c046")))
 
 
 #let homepagelink(url, content) = {
@@ -61,7 +87,7 @@
 }
 
 #let acmlink(url) = {
-  link(url)[#ai-acm(fill: rgb("#008ecf"), size: 12pt)]
+  link(url, ai-acm(fill: rgb("#008ecf"), size: iconsize))
 }
 
 // https://github.com/typst/typst/issues/1987#issuecomment-1690672386
@@ -94,6 +120,19 @@
       bl + h(1fr) + br + linebreak()
     } +
     content
+  )
+}
+
+#let entry(
+  tl: lorem(2),
+  tr: "1145/14 - 1919/8/10",
+  content
+) = {
+  block(
+    tl + h(1fr) + tr +
+    if content != "" {
+      linebreak() + content
+    }
   )
 }
 
