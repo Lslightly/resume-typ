@@ -64,12 +64,34 @@
         tl: [*#grad-school.zh*，计算机科学专业，硕士，中国],
         tr: grad-date,
       )[导师：张昱 $quad$
-        研究领域: 程序分析，内存管理，语言运行时优化
+        研究方向: 程序分析，内存管理，语言运行时优化
       ],
     )
 
     grad
     bs
+  }
+
+  let huawei_fields = {
+    let huawei-date = [#translate-date(4, 2025) -- #translate-date(9, 2025)]
+    translate(
+      en: cventry(
+        tl: [*Huawei 2012 Fields Lab, Innovation Team*],
+        tr: huawei-date,
+        bl: [*memory layout optimization*, 实习],
+      )[
+        Memory Layout Optimization for Render Service.
+      ],
+      zh: cventry(
+        tl: [*华为2012菲尔兹实验室, 创新团队*],
+        tr: huawei-date,
+        bl: [*内存数据布局优化*, 实习],
+      )[
+        - 基于类thread-sanitizer工具在终端场景渲染服务场景下收集Trace数据
+        - 利用Trace数据做访存模式实证分析
+        - 利用Trace压缩数据做内存分配数据布局优化(PGO) *WIP*
+      ]
+    )
   }
 
 
@@ -292,7 +314,7 @@
   edu
 
   translate(en: [== Work Experience], zh: [== 工作经历])
-  // huawei_fields
+  huawei_fields
 
   noSimple[
     #translate(en: [== Academic Experience], zh: [== 学术经历])
