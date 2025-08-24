@@ -46,12 +46,12 @@
         tr: bs-data,
       )[GPA: 3.93/4.30 rank: 6/169],
       zh: cventry(
-        tl: [*#bs-school.zh*，计算机科学专业，本科，中国],
+        tl: [*#bs-school.zh*，计算机科学，本科，中国],
         tr: bs-data,
-      )[GPA: 3.93/4.30 排名: 6/169],
+      )[GPA: 3.93/4.30 $quad$ 排名: 6/169],
     )
 
-    let grad-date = [#translate-date(8, 2023) -- #translate-date(6, 2026) (预计)]
+    let grad-date = [#translate-date(9, 2023) -- #translate-date(6, 2026) (预计)]
     let grad = translate(
       en: cventry(
         tl: [M.S. in Computer Science at *#grad-school.en*, PA, US],
@@ -61,10 +61,11 @@
         Research Area: Program Analysis, Empirical Study of Language Features, Memory Management, Language Runtime Optimization
       ],
       zh: cventry(
-        tl: [*#grad-school.zh*，计算机科学专业，硕士，中国],
+        tl: [*#grad-school.zh*，计算机科学，硕士，中国],
         tr: grad-date,
       )[导师：张昱 $quad$
         研究方向: 程序分析，内存管理，语言运行时优化
+        $quad$ GPA: 3.99/4.30
       ],
     )
 
