@@ -229,7 +229,7 @@
       translate(
         en: [],
         zh: [
-          - Go调试器delve 多进程调试能力的Debug Adapter Protocol(DAP)支持，用于支持Go工具链调试:
+          - Go调试器delve 子进程调试能力的Debug Adapter Protocol(DAP)支持，用于支持Go工具链调试:
             - 后端: debug console和launch request支持 #github_pr_link("https://github.com/go-delve/delve/pull/4078", "go-delve/delve#4078", status: "open")
             - 前端: vscode-go调试选项支持 #github_pr_link("https://github.com/golang/vscode-go/pull/3840", "golang/vscode-go#3840", status: "drafted")
         ]
