@@ -144,7 +144,7 @@
   }
 
   let dbigo = {
-    let date = [#translate-date(06, 2023)]
+    let date = [#translate-date(12, 2022) -- #translate-date(06, 2023)]
     translate(
       en: cventry(
         tl: [*DBI-Go: Dynamic Binary Instrumentation for Pinpointing Illegal Memory References in Go*],
