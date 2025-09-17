@@ -90,7 +90,7 @@
       )[
         - 基于类thread-sanitizer工具在终端场景渲染服务场景下收集Trace数据
         - 利用Trace数据做访存模式实证分析
-        - 利用Trace压缩数据做内存分配数据布局优化(PGO) *WIP*
+        - 利用Trace压缩数据结合BOLT做内存分配数据布局优化(PGO) *WIP*
       ]
     )
   }
@@ -118,7 +118,7 @@
         tl: [*Go 语言程序的内存性能与安全问题实证研究* #wrap_publish_info(strs: ("软件学报", "一作")) #ghLink #pdf_link("https://github.com/Lslightly/QLStat/")],
         tr: go-mem-empirical-date,
       )[
-        - 基于 CodeQL 实现批量代码仓库的内存性能相关模式扫描统计，以指导静态分析和编译优化。
+        - 基于 CodeQL 实现批量代码仓库的内存基本操作扫描统计，以指导静态分析和编译优化。
         - 人工分析总结内存安全问题模式。
         - 针对切片表达式可能导致内存泄漏的问题模式编写 Linter 工具进行检测。
       ],
@@ -187,7 +187,7 @@
         en: [],
         zh: [
           - 开发环境：
-            - 操作系统: Ubuntu(WSL2)+Windows
+            - 操作系统: Ubuntu+Windows
             - 编辑器和工具: VSCode, Obsidian, LazyVim；熟悉ChatGPT/Copilot/Cline等辅助开发
             - 版本控制与协作: 熟悉 GitHub、GitLab、Gerrit 等代码托管与协作平台，了解 GitHub Actions、GitLab CI
         ])
@@ -253,6 +253,7 @@
           - 小修复：
             - 修复delve suspended breakpoint的if条件失效 #github_pr_link("https://github.com/go-delve/delve/pull/3938", "go-delve/delve#3938", status: "merged")
             - 文档修复: #github_pr_link("https://github.com/golang/go/pull/72793", "golang/go#72793", status: "merged"), #github_pr_link("https://github.com/mgmeyers/obsidian-zotero-integration/pull/297", "mgmeyers/obsidian-zotero-integration#297", status: "merged"), #github_pr_link("https://github.com/gaogaotiantian/dowhen/pull/54", "gaogaotiantian/dowhen#54", status: "merged"), ...
+          - 更多项目见 #link("https://github.com/Lslightly", "GitHub")
         ]
       )
     }
@@ -278,7 +279,7 @@
               - #text(size: 7pt)[负责后端代码生成到ARM汇编]
             ])
             - #entry(tl: "优秀学生奖学金金奖", tr: translate-date(1, 2022), "")
-            - #entry(tl: "第五届龙芯杯团队优胜奖", tr: translate-date(8, 2021), [
+            - #entry(tl: "2021 年第五届龙芯杯团队优胜奖", tr: translate-date(8, 2021), [
               - #text(size: 7pt)[负责MIPS CP0协处理器]
             ])
         ]
