@@ -133,7 +133,7 @@
         tr: date,
       )[],
       zh: cventry(
-        tl: [*MEA2: a Lightweight Field-Sensitive Escape Analysis with Points-to Calculation for Golang* #wrap_publish_info(strs: ("OOPSLA25", "二作")) #acmlink("https://dl.acm.org/doi/10.1145/3689759") #pdf_link("https://dl.acm.org/doi/pdf/10.1145/3689759")],
+        tl: [*MEA2: a Lightweight Field-Sensitive Escape Analysis with Points-to Calculation for Golang* #wrap_publish_info(strs: ("OOPSLA24", "二作")) #acmlink("https://dl.acm.org/doi/10.1145/3689759") #pdf_link("https://dl.acm.org/doi/pdf/10.1145/3689759")],
         tr: linebreak()+h(1fr)+date,
       )[
         - 考虑Go语言的独特语言特性，在LLVM IR上实现更加精确的域敏感逃逸分析算法。
@@ -289,7 +289,7 @@
         en: [],
         zh: [
           - 助教工作:
-            - #entry(tl: "《编译原理和技术 (H)》课程助教", tr: "20222/2024秋季", "")
+            - #entry(tl: "《编译原理和技术 (H)》课程助教", tr: "2022/2024秋季", "")
             - #entry(tl: "《模拟与数字电路》课程助教", tr: "2021秋季", "")
         ]
       )
@@ -319,7 +319,7 @@
   huawei_fields
 
   noSimple[
-    #translate(en: [== Academic Experience], zh: [== 学术经历])
+    #translate(en: [== Academic Experience], zh: [== 学术项目经历])
   ]
   go-mem-empirical
   mea2field-sensitive-escape-analysis
