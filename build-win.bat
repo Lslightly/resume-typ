@@ -1,7 +1,7 @@
 @echo off
 del *.pdf
 
-set files=resume-cn,resume,resume-elab
+set files=resume-cn
 echo Generating...
 
 for %%f in (%files%) do (
@@ -12,8 +12,8 @@ for %%f in (%files%) do (
 )
 
 echo #runReader(Chinese) >> resume-cn.typ
-echo #runReader(Simplified) >> resume.typ
-echo #runReader(EnglishFull) >> resume-elab.typ
+@REM echo #runReader(Simplified) >> resume.typ
+@REM echo #runReader(EnglishFull) >> resume-elab.typ
 
 for %%f in (%files%) do (
   echo Building %%f.typ
