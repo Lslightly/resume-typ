@@ -115,7 +115,7 @@
         - 
       ],
       zh: cventry(
-        tl: [*Go 语言程序的内存性能与安全问题实证研究* #wrap_publish_info(strs: ("软件学报", "一作")) #ghLink #pdf_link("https://github.com/Lslightly/QLStat/")],
+        tl: [*Go 语言程序的内存性能与安全问题实证研究* #wrap_publish_info(strs: ("软件学报", "一作")) #ghLink #pdf_link("https://github.com/Lslightly/QLStat/raw/refs/heads/main/paper/Go%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E4%B8%8E%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E5%AE%9E%E8%AF%81%E7%A0%94%E7%A9%B6.pdf")],
         tr: go-mem-empirical-date,
       )[
         - 基于 CodeQL 实现批量代码仓库的内存基本操作扫描统计，以指导静态分析和编译优化。
