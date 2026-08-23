@@ -11,15 +11,46 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Typst
         uses: typst-community/setup-typst@v5
 
+      - name: Install Chinese Fonts
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path "fonts" -Force | Out-Null
+          $base = "https://github.com/adobe-fonts/source-han-serif/raw/refs/heads/release/SourceHanSerif/OTF"
+          $fonts = @(
+            "SimplifiedChinese/SourceHanSerifSC-Regular.otf",
+            "SimplifiedChinese/SourceHanSerifSC-Bold.otf",
+            "TraditionalChinese/SourceHanSerifTC-Regular.otf",
+            "TraditionalChinese/SourceHanSerifTC-Bold.otf",
+            "Japanese/SourceHanSerifJ-Regular.otf",
+            "Japanese/SourceHanSerifJ-Bold.otf"
+          )
+          foreach ($f in $fonts) {
+            $name = Split-Path $f -Leaf
+            Invoke-WebRequest -Uri "$base/$f" -OutFile "fonts\$name"
+          }
+          $sansBase = "https://github.com/adobe-fonts/source-han-sans/raw/refs/heads/release/SourceHanSans/OTF"
+          $sansFonts = @(
+            "SimplifiedChinese/SourceHanSansSC-Regular.otf",
+            "SimplifiedChinese/SourceHanSansSC-Bold.otf"
+          )
+          foreach ($f in $sansFonts) {
+            $name = Split-Path $f -Leaf
+            Invoke-WebRequest -Uri "$sansBase/$f" -OutFile "fonts\$name"
+          }
+
       - name: Build PDF
-        run: .\build-win.bat
+        shell: pwsh
+        run: |
+          $env:FONT_PATHS = "$(Resolve-Path fonts)"
+          .\build-win.bat
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.sha }}
+          tag_name: ${{ github.run_number }}
           name: ${{ github.event.head_commit.timestamp }}
           files: resume-cn.pdf

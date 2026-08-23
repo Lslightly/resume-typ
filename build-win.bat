@@ -17,6 +17,9 @@ echo #runReader(Chinese) >> resume-cn.typ
 
 for %%f in (%files%) do (
   echo Building %%f.typ
-  typst compile %%f.typ
-  @REM del %%f.typ
+  if defined FONT_PATHS (
+    typst compile %%f.typ --font-paths "%FONT_PATHS%"
+  ) else (
+    typst compile %%f.typ
+  )
 )
