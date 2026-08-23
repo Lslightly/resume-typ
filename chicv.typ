@@ -158,7 +158,6 @@
   )
 
   let the-font = (
-    "Palatino Linotype",
     "Source Han Serif SC",
     "Source Han Serif",
   )

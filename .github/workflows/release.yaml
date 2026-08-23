@@ -15,8 +15,30 @@ jobs:
       - name: Setup Typst
         uses: typst-community/setup-typst@v5
 
-      - name: Install Chinese Fonts
-        run: sudo apt-get install -y fonts-noto-cjk
+      - name: Install system fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            fonts-noto-cjk \
+            fonts-liberation \
+            fonts-texgyre \
+            fontconfig
+
+      - name: Install Academicons
+        run: |
+          mkdir -p ~/.local/share/fonts
+          wget -O academicons.zip https://github.com/jpswalsh/academicons/archive/refs/heads/master.zip
+          unzip -o academicons.zip -d /tmp/academicons
+          cp /tmp/academicons/academicons-master/fonts/*.ttf ~/.local/share/fonts/
+
+      - name: Install Font Awesome (Free)
+        run: |
+          wget -O fontawesome.zip https://use.fontawesome.com/releases/v6.5.1/fontawesome-free-6.5.1-desktop.zip
+          unzip -o fontawesome.zip -d /tmp/fontawesome
+          cp /tmp/fontawesome/fontawesome-free-6.5.1-desktop/otfs/*.otf ~/.local/share/fonts/
+
+      - name: Update font cache
+        run: fc-cache -fv
 
       - name: Build PDF
         run: |
