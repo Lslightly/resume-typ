@@ -73,24 +73,52 @@
     bs
   }
 
+  let grad-proj = {
+    let date = [#translate-date(9, 2025) -- #translate-date(6, 2026)]
+    let qlstat = github_repo_link("S4Plus/QLStat")
+    translate(
+      en: cventry(
+        tl: [master dissertation project],
+        tr: date,
+        bl: [Empirical Analysis and Shared Barrier Optimization for Go Memory Management],
+      )[],
+      zh: cventry(
+        tl: [*硕士毕设项目*],
+        tr: date,
+        bl: [*Go语言内存实证分析与共享屏障优化*]
+      )[
+        - 基于声明式静态分析框架开展访存特征实证分析。#qlstat
+          - 归纳内存性能问题模式实现自动化检测。引入编译器逃逸分析信息增强模式检测能力，检测到8个在写法上导致堆分配的代码实例，#link("https://github.com/S4Plus/QLStat/blob/main/doc/adapters/escape_analysis.md#small-wins", "7个")被开发者确认为正确的报告。
+        - Go编译器和运行时改进 #github_repo_link("Lslightly/go")
+          - 提出逃逸根因分析方法，实现堆分配行为的细粒度归因与项目级逃逸画像构建。#github_link("https://github.com/Lslightly/go/tree/closure-go", "closure-go分支")
+          - 针对 AArch64 架构下发布屏障的性能开销问题，复现并分析其在内存分配路径中的性能影响，验证指令级优化难以掩盖其开销，在此基础上提出共享屏障优化技术，通过批量提交机制合并多次屏障操作，在小对象连续分配场景下时间最高减少 14.28%，标准库内存密集型负载执行时间最高减少 25.22%。#github_link("https://github.com/Lslightly/go/tree/barrier", "barrier分支")。另一种简单解决方式：#html_link("https://gitcode.com/openeuler/golang/pull/67", text: "openeuler/go PR#67")。
+      ]
+    )
+  }
+
   let huawei_fields = {
     let huawei-date = [#translate-date(4, 2025) -- #translate-date(9, 2025)]
     translate(
       en: cventry(
         tl: [*Huawei 2012 Fields Lab, Innovation Team*],
         tr: huawei-date,
-        bl: [*memory layout optimization*, 实习],
+        bl: [*Profile-Guided Post-Link Data Layout Optimization for Render Service.*, 实习],
       )[
-        Memory Layout Optimization for Render Service.
+        Profile-Guided Post-Link Data Layout Optimization for Render Service.
       ],
       zh: cventry(
         tl: [*华为2012菲尔兹实验室, 创新团队*],
         tr: huawei-date,
-        bl: [*内存数据布局优化*, 实习],
+        bl: [*基于Profile指导的内存数据布局链接后优化*, 实习],
       )[
-        - 基于类thread-sanitizer工具在终端场景渲染服务场景下收集Trace数据
-        - 利用Trace数据做访存模式实证分析
-        - 利用Trace压缩数据结合BOLT做内存分配数据布局优化(PGO) *WIP*
+        - 基于#link("https://github.com/open-s4c/coldtrace", "类thread-sanitizer工具")在终端渲染服务场景下收集访存trace，使用经典#link("https://dl.acm.org/doi/10.1145/301618.301678", "Whole Program Path")算法获取热点访存模式。
+          - 优点：(1) WPP算法对于有固定未知模式的序列具有归纳总结能力，可以自动归纳形成语法树。(2) 语法树包含模式出现频次信息。
+          - 缺点：(1) 算法用Python编写，执行效率极低，需要考虑用C++/Rust等语言编写。(2) WPP算法构造的树较高，模式受限。(3) 该算法不容易并行化。
+          - 初步结果：热点访存呈现周期性模式，和帧相关。
+        - 基于#link("https://github.com/llvm/llvm-project/blob/main/bolt/README.md", "BOLT")的二进制malloc上下文注入工具。
+          - 优点：在给定二进制以及trace中的调用指令PC地址后，可以在该PC前后插入上下文进入和退出函数，使得函数调用处在指定上下文状态中，改变程序内存分配行为。
+          - 缺点：(1) 源码在编译时需要链接上下文库，从而能够在二进制中找到上下文进入和退出函数符号。(2) 指定PC前后需要可以插入指令。(3) 优化前二进制必须保留符号信息。
+        - 上下文敏感的内存分配器（未完成，难度较大）
       ]
     )
   }
@@ -106,7 +134,7 @@
 
   let go-mem-empirical = {
     let go-mem-empirical-date = [#translate-date(10, 2023) -- #translate-date(05, 2025)]
-    let ghLink = github_repo_link("Lslightly/QLStat")
+    let ghLink = github_repo_link("S4Plus/QLStat")
     translate(
       en: cventry(
         tl: [*Empirical Study of Memory Performance and Safety Issues of Go Programs*],
@@ -115,12 +143,12 @@
         - 
       ],
       zh: cventry(
-        tl: [*Go 语言程序的内存性能与安全问题实证研究* #wrap_publish_info(strs: ("软件学报", "一作")) #ghLink #pdf_link("https://github.com/Lslightly/QLStat/raw/refs/heads/main/paper/Go%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E4%B8%8E%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E5%AE%9E%E8%AF%81%E7%A0%94%E7%A9%B6.pdf")],
+        tl: [*Go 语言程序的内存性能与安全问题实证研究* #wrap_publish_info(strs: ("软件学报", "一作")) #html_link("https://www.jos.org.cn/jos/article/abstract/7464") #ghLink #pdf_link("https://github.com/S4Plus/QLStat/raw/refs/heads/main/paper/Go%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E4%B8%8E%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E5%AE%9E%E8%AF%81%E7%A0%94%E7%A9%B6.pdf")],
         tr: go-mem-empirical-date,
       )[
         - 基于 CodeQL 实现批量代码仓库的内存基本操作扫描统计，以指导静态分析和编译优化。
         - 人工分析总结内存安全问题模式。
-        - 针对切片表达式可能导致内存泄漏的问题模式编写 Linter 工具进行检测。
+        - 针对切片表达式可能导致内存泄漏的问题模式编写 Linter 工具进行检测。由#link("https://github.com/aws/aws-sdk-go", "aws-sdk-go")项目开发者确认存在1个#github_issue_link("https://github.com/aws/aws-sdk-go/issues/5327", "issue", status: "closed")。
       ],
     )
   }
@@ -319,8 +347,9 @@
   huawei_fields
 
   noSimple[
-    #translate(en: [== Academic Experience], zh: [== 学术项目经历])
+    #translate(en: [== Project Experience], zh: [== 项目经历])
   ]
+  grad-proj
   go-mem-empirical
   mea2field-sensitive-escape-analysis
   dbigo

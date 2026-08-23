@@ -47,12 +47,23 @@
 #let html_link(uri, text: "") = {
   if text == "" {
     icon_link(uri, icon: fa-globe(fill: gray, size: iconsize))
+  } else {
+    icon_text_link(uri, text: text, icon: fa-globe(fill: gray, size: iconsize))
   }
 }
 
 #let email_link(uri, email) = icon_text_link(uri, text: email, icon: fa-envelope())
 
+#let github_link(uri, text) = icon_text_link(uri, text: text, icon: fa-github())
 #let github_repo_link(repo) = icon_text_link("https://github.com/" + repo, text: repo, icon: fa-github())
+
+#let github_issue_link(link, text, status: "open") = {
+  if status == "open" {
+    icon_text_link(link, text: text, icon: fa-circle-exclamation(fill: rgb("#1f883d")))
+  } else if status == "closed" {
+    icon_text_link(link, text: text, icon: fa-circle-exclamation(fill: rgb("#8250df")))
+  }
+}
 
 #let github_pr_link(link, text, status: "merged") = {
   if status == "merged" {
