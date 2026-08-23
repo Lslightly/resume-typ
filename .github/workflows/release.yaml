@@ -16,7 +16,7 @@ jobs:
         uses: typst-community/setup-typst@v5
 
       - name: Install Chinese Fonts
-        uses: RisingInIris2017/cjk-fonts-action@v1  
+        run: sudo apt-get install -y fonts-noto-cjk
 
       - name: Build PDF
         shell: pwsh
