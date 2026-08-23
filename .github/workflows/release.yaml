@@ -19,10 +19,8 @@ jobs:
         run: sudo apt-get install -y fonts-noto-cjk
 
       - name: Build PDF
-        shell: pwsh
         run: |
-          $env:FONT_PATHS = "$(Resolve-Path fonts)"
-          .\build-win.bat
+          ./build-linux.sh
 
       - name: Create Release
         uses: softprops/action-gh-release@v2

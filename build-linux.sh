@@ -2,7 +2,7 @@
 
 rm -f *.pdf
 
-files=("resume-cn" "resume" "resume-elab")
+files=("resume-cn")
 echo "Generating..."
 
 for f in "${files[@]}"; do
@@ -13,8 +13,8 @@ for f in "${files[@]}"; do
 done
 
 echo '#runReader(Chinese)' >> "resume-cn.typ"
-echo '#runReader(Simplified)' >> "resume.typ"
-echo '#runReader(EnglishFull)' >> "resume-elab.typ"
+# echo '#runReader(Simplified)' >> "resume.typ"
+# echo '#runReader(EnglishFull)' >> "resume-elab.typ"
 
 for f in "${files[@]}"; do
   echo "Building $f.typ"
