@@ -18,6 +18,6 @@ echo '#runReader(Chinese)' >> "resume-cn.typ"
 
 for f in "${files[@]}"; do
   echo "Building $f.typ"
-  typst compile "$f.typ"
+  typst compile "$f.typ" --font-path ~/.local/share/fonts
   rm "$f.typ"
 done

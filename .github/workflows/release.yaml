@@ -39,6 +39,8 @@ jobs:
 
       - name: Update font cache
         run: fc-cache -fv
+      - name: List available fonts for debugging (optional)
+        run: typst fonts
 
       - name: Build PDF
         run: |
