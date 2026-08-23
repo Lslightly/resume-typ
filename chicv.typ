@@ -158,8 +158,8 @@
   )
 
   let the-font = (
-    "Source Han Serif SC",
-    "Source Han Serif",
+    "Noto Serif CJK SC",
+    "Noto Sans Mono CJK SC",
   )
   show heading.where(
     level: 2

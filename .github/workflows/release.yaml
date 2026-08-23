@@ -33,9 +33,9 @@ jobs:
 
       - name: Install Font Awesome (Free)
         run: |
-          wget -O fontawesome.zip https://use.fontawesome.com/releases/v6.5.1/fontawesome-free-6.5.1-desktop.zip
+          wget -O fontawesome.zip https://use.fontawesome.com/releases/v7.3.1/fontawesome-free-7.3.1-desktop.zip
           unzip -o fontawesome.zip -d /tmp/fontawesome
-          cp /tmp/fontawesome/fontawesome-free-6.5.1-desktop/otfs/*.otf ~/.local/share/fonts/
+          cp /tmp/fontawesome/fontawesome-free-7.3.1-desktop/otfs/*.otf ~/.local/share/fonts/
 
       - name: Update font cache
         run: fc-cache -fv
