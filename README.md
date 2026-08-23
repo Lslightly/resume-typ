@@ -8,14 +8,18 @@ Build on Windows: install the latest version of typst and the fontawesome fonts 
 
 ## GitHub Actions Release Workflow
 
-When you push to `master`, the `.github/workflows/release.yaml` workflow will automatically:
+When you push a tag (e.g. `v1.0.0`), the `.github/workflows/release.yaml` workflow will automatically:
 
-1. Run on a Windows runner
-2. Install Typst
-3. Run `build-win.bat` to generate `resume-cn.pdf`
+1. Run on an Ubuntu runner
+2. Install Typst and required fonts (Noto CJK, Font Awesome, Academicons)
+3. Run `build-linux.sh` to generate `resume-cn.pdf`
 4. Create a GitHub Release with the commit timestamp as the release name and attach `resume-cn.pdf`
 
-No manual intervention is needed beyond having the workflow file present in the repository.
+To trigger a release, run:
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
 
 ---
 
@@ -25,6 +29,6 @@ PR to [ice1000's template](https://github.com/ice1000/resume) welcome.
 
 # Download/下载
 
-+ [中文版 (PDF)](./resume-cn.pdf)
++ [中文版 (PDF)](https://github.com/Lslightly/resume-typ/releases/latest/resume-cn.pdf)
 
 > English version is not available yet.
